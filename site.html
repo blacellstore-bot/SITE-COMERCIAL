@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestão Completa para Restaurantes @MARCOS EDUARDO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Estilos Globais */
+        :root {
+            --primary: #2563eb;
+            /* Azul das suas telas */
+            --secondary: #10b981;
+            /* Verde das suas telas */
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --text: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: #fff;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .nav-links a {
+            margin-left: 20px;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn-header {
+            background-color: var(--primary);
+            color: #fff !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* Hero Section (Topo) */
+        .hero {
+            margin-top: 80px;
+            padding: 100px 5%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #e0e7ff 0%, #ffffff 100%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+            transition: transform 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Funcionalidades */
+        .features {
+            padding: 80px 5%;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 50px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card i {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        /* Preços / Planos */
+        .pricing {
+            padding: 80px 5%;
+            text-align: center;
+            background-color: var(--light);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .plan {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .plan.destaque {
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+        }
+
+        .plan h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: #64748b;
+        }
+
+        .plan ul {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .plan ul li {
+            margin-bottom: 10px;
+        }
+
+        .plan ul li i {
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--dark);
+            color: #fff;
+            text-align: center;
+            padding: 30px 5%;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                /* Em um site real, aqui entraria um menu hamburguer */
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .plan.destaque {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo"><i class="fas fa-utensils"></i> GestãoRest SaaS</div>
+        <nav class="nav-links">
+            <a href="#recursos">Recursos</a>
+            <a href="#planos">Planos</a>
+            <a href="#contato">Contato</a>
+            <a href="#" class="btn-header">Login do Cliente</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Automatize e Cresça o Seu Restaurante com Facilidade</h1>
+        <p>A plataforma definitiva para emissão de notas, controle de fiado, comandas digitais e muito mais. Tudo em um
+            só lugar.</p>
+        <a href="#planos" class="btn-primary">Começar Meu Teste Grátis</a>
+    </section>
+
+    <section id="recursos" class="features">
+        <h2 class="section-title">Tudo o que você precisa</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-qrcode"></i>
+                <h3>Comanda via QR Code</h3>
+                <p>Agilize o atendimento. O cliente lê o código na mesa, faz o pedido e a informação vai direto para a
+                    cozinha e para o caixa.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-book-open"></i>
+                <h3>Controle de "Fiado"</h3>
+                <p>Anote as vendas de clientes fixos e empresas. Gere um extrato mensal detalhado, envie a cobrança e
+                    receba via PIX facilmente.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-hand-holding-dollar"></i>
+                <h3>Comissão de Garçom</h3>
+                <p>Calcule automaticamente a comissão de cada atendente no fechamento da conta, sem dores de cabeça no
+                    fim do mês.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-chart-pie"></i>
+                <h3>Gráficos e Caixa</h3>
+                <p>Painel de receitas completo. Veja exatamente o que foi pago e o que falta receber com gráficos
+                    intuitivos em tempo real.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <h3>Emissão de Nota Fiscal</h3>
+                <p>Emita cupons e notas fiscais de forma rápida e totalmente integrada aos órgãos da receita.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-laptop-code"></i>
+                <h3>100% em Nuvem</h3>
+                <p>Acesse o sistema de qualquer computador ou celular. Seus dados sempre seguros e sincronizados.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="planos" class="pricing">
+        <h2 class="section-title">Escolha o Plano Ideal</h2>
+        <div class="pricing-grid">
+
+            <div class="plan">
+                <h3>Essencial</h3>
+                <div class="price">R$ 97<span>/mês</span></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> Controle de Caixa e Gráficos</li>
+                    <li><i class="fas fa-check"></i> Gestão de "Fiado" e Clientes</li>
+                    <li><i class="fas fa-check"></i> Suporte via WhatsApp</li>
+                    <li><i class="fas fa-times" style="color:#ef4444"></i> Comanda via QR Code</li>
+                    <li><i class="fas fa-times" style="color:#ef4444"></i> Emissão de Nota Fiscal</li>
+                </ul>
+                <a href="#" class="btn-primary"
+                    style="background-color: var(--primary); display:block; text-align:center;">Assinar Agora</a>
+            </div>
+
+            <div class="plan destaque">
+                <h3>Completo (SaaS)</h3>
+                <div class="price">R$ 197<span>/mês</span></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> <strong>Tudo do plano Essencial</strong></li>
+                    <li><i class="fas fa-check"></i> Comanda de Mesa via QR Code</li>
+                    <li><i class="fas fa-check"></i> Cálculo de Comissão de Garçom</li>
+                    <li><i class="fas fa-check"></i> Emissão de Nota Fiscal Integrada</li>
+                    <li><i class="fas fa-check"></i> Extrato detalhado com PIX de cobrança</li>
+                </ul>
+                <a href="#" class="btn-primary" style="display:block; text-align:center;">Começar Teste Grátis</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 GestãoRest SaaS. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+
+</html>
